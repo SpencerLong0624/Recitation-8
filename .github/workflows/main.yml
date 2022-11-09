@@ -1,5 +1,5 @@
 name: build
-on: push
+on: [push, pull_request]
 
 jobs:
   test:
@@ -30,3 +30,5 @@ jobs:
           pipenv run pytest --cov=app
       - name: Format
         uses: rickstaa/action-black@v1.1.14
+      - name: Pytest Coverage Commentator
+        uses: coroo/pytest-coverage-commentator@v1.0.2
